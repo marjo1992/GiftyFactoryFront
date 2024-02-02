@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { accountService } from '@/_services'
-import router from '@/router'
 import store from '@/store'
 
 const Axios = axios.create({

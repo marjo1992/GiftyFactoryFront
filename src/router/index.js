@@ -4,6 +4,9 @@ import CreateUserView from '../views/CreateUserView.vue'
 import LoginView from '../views/LoginView.vue'
 import SearchUserView from '../views/SearchUserView.vue'
 import LogoutView from '../views/LogoutView.vue'
+import CreatePersonView from '../views/CreatePersonView.vue'
+import ModifyPersonView from '../views/ModifyPersonView.vue'
+import UserInfoView from '../views/UserInfoView.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +30,21 @@ const router = createRouter({
             path: '/search_user',
             name: 'searchUser',
             component: SearchUserView
+        },
+        {
+            path: '/create_person',
+            name: 'createPerson',
+            component: CreatePersonView
+        },
+        {
+            path: '/modify_person/:id',
+            name: 'modifyPerson',
+            component: ModifyPersonView
+        },,
+        {
+            path: '/me',
+            name: 'userInfo',
+            component: UserInfoView
         },
         {
             path: '/logout',

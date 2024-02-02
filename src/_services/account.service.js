@@ -39,17 +39,33 @@ let isLogged = () => {
     return !!token
 }
 
-let searchUserByName = (name, firstname, birthdate) => {
+let searchPersonByName = (name, firstname, birthdate) => {
     const map = { "name": name, "firstname": firstname, "birthdate": birthdate };
     let searchFields = Object.entries(map)
         .filter(([k, v]) => v)
         .map(([k, v]) => `${k}=${v}`)
         .join("&")
-    return Axios.get('/person/searchexact?' + searchFields)
+    return Axios.get('/person/search?' + searchFields)
 }
 
 let signup = (user) => {
     return Axios.post('/auth/signup', user)
+}
+
+let createPerson = (person) => {
+    return Axios.post('/person', person)
+}
+
+let getPerson = (id) => {
+    return Axios.get('/person/'+id)
+}
+
+let getUserInfos = () => {
+    return Axios.get('/user')
+}
+
+let modifyPerson = (person, id) => {
+    return Axios.put('/person/'+id, person)
 }
 
 export const accountService = {
@@ -61,6 +77,10 @@ export const accountService = {
     getConnectedUser,
     loadAndGetConnectedUser,
     isLogged,
-    searchUserByName,
-    signup
+    searchPersonByName,
+    signup,
+    createPerson,
+    getPerson,
+    modifyPerson,
+    getUserInfos
 }

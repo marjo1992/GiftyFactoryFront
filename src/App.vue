@@ -22,11 +22,13 @@ export default {
 
         <div class="wrapper">
             <nav>
-                <RouterLink to="/">Gifty</RouterLink>
-                <RouterLink to="/create_user">Create User</RouterLink>
-                <RouterLink to="/login">Login</RouterLink>
-                <RouterLink to="/search_user">Search User</RouterLink>
-                <RouterLink to="/logout">Logout</RouterLink>
+                <RouterLink :to="{name: 'gifty'}">Gifty</RouterLink>
+                <RouterLink :to="{name: 'createUser'}">Créer un user</RouterLink>
+                <RouterLink :to="{name: 'login'}">Login</RouterLink>
+                <RouterLink :to="{name: 'userInfo'}">Mon profil</RouterLink>
+                <RouterLink :to="{name: 'searchUser'}">Rechercher une personne</RouterLink>
+                <RouterLink :to="{name: 'createPerson'}">Créer une personne</RouterLink>
+                <RouterLink :to="{name: 'logout'}">Logout</RouterLink>
             </nav>
         </div>
 

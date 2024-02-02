@@ -17,7 +17,7 @@ export default {
                 .then(res => {
                     accountService.saveToken(res.data.accessToken)
                     accountService.saveConnectedUser(this.user.username)
-                    this.$router.push({name:"searchUser"})
+                    this.$router.push({name:"userInfo"})
                 })
                 .catch(err => console.log(err))
         }

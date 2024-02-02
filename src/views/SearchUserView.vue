@@ -18,11 +18,10 @@ export default {
         search() {
             this.persons = null
             this.errorMessage = null
-            accountService.searchUserByName(this.user.name, this.user.firstname, this.user.birthdate)
+            accountService.searchPersonByName(this.user.name, this.user.firstname, this.user.birthdate)
                 .then(res => {
                     if (res.data.length) {
                         this.persons = res.data
-                        console.log(this.persons)
                     } else {
                         this.errorMessage = "pas de résultats"
                     }
@@ -31,6 +30,9 @@ export default {
                     this.errorMessage = err
                     console.log(err)
                 })
+        },
+        modify(id) {
+            this.$router.push({name:"modifyPerson", params: {id}}) // {id} == {id:id}
         }
     }
 }
@@ -62,7 +64,7 @@ export default {
         </div>
         <div v-if="persons">
             <li v-for="person in persons">
-                {{ person.firstname }}
+                {{ person.name }} {{ person.firstname }} née le {{ person.birthdate }} <span class="actionButton" @click="modify(person.id)">🖉</span>
             </li>
         </div>
         <div class="errorMessage" v-if="errorMessage">
@@ -73,4 +75,7 @@ export default {
 
 
 <style scoped>
+.actionButton {
+    cursor: pointer;
+}
 </style>
