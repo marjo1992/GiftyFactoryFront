@@ -34,6 +34,7 @@ Axios.interceptors.response.use(response => {
     } else {
         if (error.response.status == 401) {
             accountService.logout()
+            console.error(error)
             return Promise.reject(error.response.data.message)
         } else {
             // Error from API

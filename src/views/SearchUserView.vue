@@ -33,6 +33,9 @@ export default {
         },
         modify(id) {
             this.$router.push({name:"modifyPerson", params: {id}}) // {id} == {id:id}
+        },
+        getIdeas(id) {
+            this.$router.push({name:"getIdeasFor", params: {id}}) // {id} == {id:id}
         }
     }
 }
@@ -64,7 +67,9 @@ export default {
         </div>
         <div v-if="persons">
             <li v-for="person in persons">
-                {{ person.name }} {{ person.firstname }} née le {{ person.birthdate }} <span class="actionButton" @click="modify(person.id)">🖉</span>
+                {{ person.name }} {{ person.firstname }} née le {{ person.birthdate }}
+                <span class="actionButton" @click="modify(person.id)">🖉</span>
+                <span class="actionButton" @click="getIdeas(person.id)">🎁</span>
             </li>
         </div>
         <div class="errorMessage" v-if="errorMessage">

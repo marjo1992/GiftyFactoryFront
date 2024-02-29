@@ -68,6 +68,24 @@ let modifyPerson = (person, id) => {
     return Axios.put('/person/'+id, person)
 }
 
+let getPersonsOwnedByConnectedUser = () => {
+    return Axios.get('/person/owned')
+}
+
+let getConnectedPerson = () => {
+    return Axios.get('/person')
+}
+
+let createIdea = (idea) => {
+    return Axios.post('/idea', idea)
+}
+
+let getIdeasFor = (personId) => {
+    return Axios.get('/person/'+personId+'/ideas')
+}
+
+
+
 export const accountService = {
     login,
     logout,
@@ -82,5 +100,9 @@ export const accountService = {
     createPerson,
     getPerson,
     modifyPerson,
-    getUserInfos
+    getUserInfos,
+    getPersonsOwnedByConnectedUser,
+    getConnectedPerson,
+    createIdea,
+    getIdeasFor
 }

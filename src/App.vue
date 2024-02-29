@@ -28,6 +28,7 @@ export default {
                 <RouterLink :to="{name: 'userInfo'}">Mon profil</RouterLink>
                 <RouterLink :to="{name: 'searchUser'}">Rechercher une personne</RouterLink>
                 <RouterLink :to="{name: 'createPerson'}">Créer une personne</RouterLink>
+                <RouterLink :to="{name: 'createIdea'}">Créer une idée</RouterLink>
                 <RouterLink :to="{name: 'logout'}">Logout</RouterLink>
             </nav>
         </div>

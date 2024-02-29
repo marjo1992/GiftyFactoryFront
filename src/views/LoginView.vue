@@ -8,18 +8,23 @@ export default {
             user: {
                 username: '',
                 password: ''
-            }
+            },
+            errorMessage: null
         }
     },
     methods: {
         login() {
+            this.errorMessage=null
             accountService.login(this.user)
                 .then(res => {
                     accountService.saveToken(res.data.accessToken)
                     accountService.saveConnectedUser(this.user.username)
                     this.$router.push({name:"userInfo"})
                 })
-                .catch(err => console.log(err))
+                .catch(err => {
+                    this.errorMessage = err.response.data.message
+                    console.log(err)
+                })
         }
     }
 }
@@ -30,6 +35,7 @@ export default {
 <template>
     <h1>Login</h1>
     <main>
+        <div class="errorMessage" v-if="errorMessage">{{ errorMessage }}</div>
 
         <div>
         <form @submit.prevent="login">
